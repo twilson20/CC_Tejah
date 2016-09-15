@@ -1,4 +1,4 @@
-//Buildings, Tejah 
+//Buildings, 
 size(1080,720);
 background(40,50,150);
 strokeWeight(10); //for the first two rect
