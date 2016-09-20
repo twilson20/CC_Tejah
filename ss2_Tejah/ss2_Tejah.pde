@@ -1,6 +1,19 @@
-//Buildings, Tejah
+//Night, Tejah 
+//keypressed - the lights on 3 of the windows flash
+//keypressed - you can add stars to the sky 
+//mousepressed - the background goes back to black, with no stars 
+float fill=2;
+float change= 5;
+float value=0.1;
+float size = 0; 
+
+
+void setup() {
 size(1080,720);
-background(40,50,150);
+background(0);
+}
+
+void draw () {
 strokeWeight(10); //for the first two rect
 fill(40);
 rect(10,50,300,650);//rectangle 
@@ -43,3 +56,36 @@ fill(120,120,0);
 rect(780, 205, 100, 100);
 fill(120,120,0);
 rect(900, 330, 140, 150);
+
+ 
+}
+
+void mousePressed() {  
+  draw ();
+  
+  fill(fill + value);
+  rect(305, 150, -50, 90);
+  
+  fill(fill +value);
+  rect(900, 330, 140, 150);
+
+  fill(fill +value);
+  rect(200, 300,50,90);
+
+  fill(fill +value);
+  rect(530, 250, 80, 100);
+
+  
+  //add stars, dots, everytime the key is pressed to a specidic point 
+  
+  fill(255,255,0);
+  ellipse(mouseX, mouseY, 5,5);
+  
+  }
+
+void keyPressed(){
+  //background(40,50,150);
+  background(0);
+ 
+}
+ 
