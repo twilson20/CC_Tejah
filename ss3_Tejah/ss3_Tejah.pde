@@ -1,4 +1,8 @@
 //Colors, Tejah 
+//Press the mouse to make the circles appear
+//Press a key to make the squares appear 
+//Roll mouse over large circles                                                                     
+
 float x =0 ;
 float r= 0;
 float g = 0;
