@@ -1,3 +1,4 @@
+//Colors, Tejah 
 float x =0 ;
 float r= 0;
 float g = 0;
