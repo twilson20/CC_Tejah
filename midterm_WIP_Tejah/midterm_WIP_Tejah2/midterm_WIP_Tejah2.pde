@@ -29,6 +29,7 @@ void draw () {
       fill (0,0,255);
       rect (460, 450, 200, 100);
     }
+    
     if (mousePressed){
        if (mouseX>width/6 && mouseX < width/6 + 200 && mouseY> 450 && mouseY<450 + 100){ // if you press the left rectangle go to state 2
         println("mouse is over left rectangle");
@@ -67,7 +68,14 @@ void draw () {
          rect (80, 625, 200, 100);
          rect (530, 625, 200, 100);
          fill (0);
+         
+             
+        if (state=="scene3"){
+ 
+           
          }
+         }
+     
          }
     }
   
@@ -112,6 +120,6 @@ void draw () {
          if (mouseX> 275 && mouseX<330 && mouseY >170 && mouseY <230)
                   println("mouse is over top large circle");
          }
-          
+         println (state);
      }
-     
+  
