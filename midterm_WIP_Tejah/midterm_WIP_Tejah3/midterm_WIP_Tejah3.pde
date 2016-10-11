@@ -15,12 +15,15 @@ void setup () {
   cursor (img4,20, 20);
 }
 
+void rectangle () {
+    fill (170,0,170);
+    rect (460, 450, 200, 100);
+  }
 void draw () {
   if  (state == "scene1") { //state is scene 1,print the following 
     background (0); 
     fill(170,0,170);
-    rect (width/6,450, 200,100);
-    rect (460, 450, 200, 100);
+    rectangle ();
     if (mouseX>width/6 && mouseX < width/6 + 200 && mouseY> 450 && mouseY<450 + 100) { //rectangle rollover hightlight 
       fill (0,0,255);
       rect (width/6,450, 200,100);
