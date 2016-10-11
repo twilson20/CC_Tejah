@@ -1,7 +1,13 @@
-// mouth images came from here 3dpcase.sculpteo.com
+// Title -  Pumpkin CYOA 
+// A simple CYOA adevnture game. Click your choices, and in the end you
+//have your final creation!
+
+//Images and Music Credit 
+// all mouth images came from here 3dpcase.sculpteo.com
 //pumpkin image on main screen came from here http://2.bp.blogspot.com/-Jmgq9LEKBSk/VCi2Mkd3KTI/AAAAAAAAFpc/owu404xpC_A/s1600/pumpkin.png
 // background music came from here https://www.youtube.com/watch?v=JxFLOPi-a8w
-//the click noise came from here https://www.youtube.com/watch?v=oCUBtBZBkk8
+//the click sound came from here https://www.youtube.com/watch?v=oCUBtBZBkk8
+
 import processing.sound.*;
 SoundFile music;
 SoundFile click;
