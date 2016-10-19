@@ -152,8 +152,7 @@ else if (state =="scene19") {
   scene19();
 }
 println (state);
-}
- image(images[randomimages], 400,400, 20, 20);
+image(images[randomimage], 400,400, 20, 20);
 }
 
   void intro() {
@@ -678,14 +677,13 @@ void scene19 () {
   background (255);
     text ("Play Again", 250, 690);
   textSize (60);
-  //if (images[4] ==  || images[4] == 1) { //fangs 
-  //image (girl, 40, 350, 400, 400);
-  //} else {
-  //image (pumpkin, 40, 350, 400, 400); //mouth3 smile 
-  //}
-  //println(images[4]);
+  if (images[4] == [0] || images[4] == [1]) { //fangs 
+  image (girl, 40, 350, 400, 400);
+  } else {
+  image (pumpkin, 40, 350, 400, 400); //mouth3 smile 
   }
-
+  println(images[4]);
+  }
 
 void mousePressed(){
   if (state == "scene19"){
