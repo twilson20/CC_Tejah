@@ -44,14 +44,26 @@ PImage squareteeth;
 PImage trianglesmile;
 PImage roundteeth;
 PImage roundsmile;
+PImage speech1;
+PImage girl;
 // smile
 int speed = 1;
 float direction = 1;
 int x = 307; //315ffangs?
 
- void setup () {
+String[] imageNames = { "yuck.PNG", "mouth2.png", "mouth3.png" };
+PImage[] randomimages = new PImage[imageNames.length];
 
+
+float  ran = random (0,randomimages.length);
+int ind = (int) ran;
+  
+void setup () {
   size (800,800);
+  girl = loadImage ("girl.png");
+  speech1 = loadImage("yuck.PNG");
+  //speech1.resize (0, 10);
+  //image(speech1, 0, 0, 100,100);
   eyes1 = loadShape("eyes1.svg");
   eyes2 = loadShape("eyes2.svg");
   pumpkin = loadImage ("pump3.png");
@@ -64,10 +76,10 @@ int x = 307; //315ffangs?
   tree = loadImage ("halloweentree.png");
   bats = loadImage ("bats.png");
   pump =loadImage ("pumpkin.png");
-  music = new SoundFile (this,"halloween.mp3");
-  music.play();
-  music.loop();
-  music.amp (1);
+  //music = new SoundFile (this,"halloween.mp3");
+  //music.play();
+  //music.loop();
+  //music.amp (1);
   click = new SoundFile (this, "click.mp3");
   click.amp(3);
   squaresmile = loadImage ("squaresmile.PNG");
@@ -75,9 +87,14 @@ int x = 307; //315ffangs?
   roundsmile = loadImage ("roundsmile.PNG");
   roundteeth = loadImage ("roundteeth.PNG");
   trianglesmile = loadImage ("trianglesmile.PNG");
+  for (int i=0; i < imageNames.length; i++){
+    randomimages[i] = loadImage(imageNames [i]);
+   }
+  print (imageNames [0]);
 }
 
-void draw () { 
+void draw () {
+  
     if (state == "intro") {
       intro();
     }
@@ -130,6 +147,9 @@ else if (state =="scene16") {
 }
 else if (state =="scene17") {
   scene17();
+}
+else if (state =="scene19") {
+  scene19();
 }
 println (state);
 }
@@ -615,40 +635,77 @@ void scene16 () {
 void scene17 () {
 
   background (0,0,130);
-  squarepumpkin ();
+  image (pumpkin, 140, 300);
+  shape (eyes3, 163, 295,980,1000);
   mouth3.resize (0,100);//smile 
- 
   x += speed * direction;
   if (x>310) {
     direction = -direction;
   }
   if ( x<295) {
-   image (mouth3, x,400);
+   image (mouth3, x,500);
    direction = 1;
 } else {
-  image (mouth3, x,400);
+  image (mouth3, x,500);
 }
 
 
-  textSize (30);
- fill(r,g,b);
+ textSize (30);
+ fill(0);
  r = random (0,255);
  g = random (0,255);
  b = random (0, 255);
-  text ("YAY!! You Decorated Your Own Pumpkin!",120, 70);
-  textSize(60);
-  text ("Wasn't that fun?!",180, 170);
-  textSize (40);
+  textSize(44);
+  text ("Great! You decorated your pumpkin!",50,70);
+  textSize(36);
+  text ("Find out what the Pumpkin Expert",80, 140);
+  textSize (36);
+  text ("has to say about it",160, 240);
   fill(0);
-  text ("Play Again!", 290, 590);
-  strokeWeight (10);
-  line (10, y, 10, y );
+  text ("NEXT", 650, 690);
+  textSize (60);
     if (mousePressed) 
-    if  (mouseX>250 && mouseX<600 && mouseY>550 && mouseY<590) {
-    state = "intro";
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
     click.play();
     }
 
   }
 
-  
+void scene19 () {
+  background (255);
+  PImage img = randomimages[ind];
+  image (img,300, 90);
+    text ("Play Again", 250, 690);
+  textSize (60);
+  if (randomimages[ind] == speech1 || randomimages[ind] == mouth2) { //fangs 
+  image (girl, 40, 350, 400, 400);
+  } else {
+  image (pumpkin, 40, 350, 400, 400); //mouth3 smile 
+  }
+  println(randomimages[ind]);
+  }
+
+
+void mouseClicked(){
+  if (state == "scene19"){
+    if  (mouseX>250 && mouseX<580 && mouseY>630 && mouseY<690) {
+      state = "intro";
+      ran = random (0,randomimages.length);
+      ind = (int) ran;
+     click.play();
+     //if (randomimages[ind] == speech1);
+     //image (girl, 40, 350, 400, 400);
+    }
+  }
+}
+
+//void scene20 () {
+//  background (255);
+//  image (girl, 40, 350, 400, 400);
+//}
+
+//random image - text boxes
+//if a certain random image is choosen then a different baby appears 
+//grim image came from here http://www.clipartlord.com/category/halloween-clip-art/grim-reaper-clip-art/
+// girl and monster came from here http://cliparts.co/halloween-cartoon
