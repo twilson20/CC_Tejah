@@ -3,19 +3,12 @@
 //have your final creation!
 
 //Images and Music Credit 
-// all mouth images came from here 3dpcase.sculpteo.com
-//pumpkin image on main screen came from here http://2.bp.blogspot.com/-Jmgq9LEKBSk/VCi2Mkd3KTI/AAAAAAAAFpc/owu404xpC_A/s1600/pumpkin.png
 // background music came from here https://www.youtube.com/watch?v=JxFLOPi-a8w
 //the click sound came from here https://www.youtube.com/watch?v=oCUBtBZBkk8
-//change fonts 
-// add more options
-// more randomization - make pumpkin do stuff at the end
-//add sound at the end 
-// figure out background image 
-//make pumpkin talk/ say random sounds with the click of a button? random 
-//pumpkin says random things at the end each time ?? 
-//array for sounds /pumpkin moves in diff directions, randomly???
-// look at other decration games 
+// all mouth images came from here 3dpcase.sculpteo.com
+//pumpkin image on main screen came from here http://2.bp.blogspot.com/-Jmgq9LEKBSk/VCi2Mkd3KTI/AAAAAAAAFpc/owu404xpC_A/s1600/pumpkin.png
+//grim image came from here http://www.clipartlord.com/category/halloween-clip-art/grim-reaper-clip-art/
+// girl and monster came from here http://cliparts.co/halloween-cartoon
 
 import processing.sound.*;
 SoundFile music;
@@ -72,8 +65,6 @@ void setup () {
   images [3] = loadImage ("eww.png");
   images [4] = loadImage ("pretty.png");
   images [5] = loadImage ("bad.png");
-  //speech1.resize (0, 10);
-  //image(speech1, 0, 0, 100,100);
   eyes1 = loadShape("eyes1.svg");
   eyes2 = loadShape("eyes2.svg");
   pumpkin = loadImage ("pump3.png");
@@ -203,8 +194,7 @@ println (state);
     }
   }
  }
-  
-  
+   
  
   void scene2 () {
     background(130,120, 0);
@@ -307,7 +297,7 @@ void scene6 () {
 }
 
 void scene7() { //round eyes w/ fangs 
-  background (0,0,130);
+  background (93,28,53);
   roundpumpkin ();
   mouth2.resize (0,120);//fangs 
   x += speed * direction;
@@ -340,14 +330,14 @@ void scene7() { //round eyes w/ fangs
 
    
 
-void roundpumpkin () { //round eyes pumpkin 
+void roundpumpkin () { //round eyes pumpkin function 
       pumpkin.resize (0,400);
     image (pumpkin, 140, 200);
     shape (eyes1, 325, 330);
 }
 
 void scene8 () {
-  background (0,0,130);
+  background (93,28,53);
   roundpumpkin ();
   mouth1.resize (0,130);//lots of teeth and fangs 
     x += speed * direction;
@@ -379,7 +369,7 @@ void scene8 () {
 
 
 void scene9 () {
-  background (0,0,130);
+  background (93,28,53);
   roundpumpkin ();
   mouth3.resize (0,100);//smile 
     x += speed * direction;
@@ -410,7 +400,7 @@ void scene9 () {
     }
 }
 
-// triangle pumpkin 
+// triangle pumpkin function 
 void trianglepumpkin () {
    pumpkin.resize(0,400);
   image (pumpkin, 140, 200);
@@ -418,7 +408,7 @@ void trianglepumpkin () {
 }
 
 void scene11 () {
-   background (0,0,130);
+   background (93,28,53);
   trianglepumpkin ();
   mouth2.resize (0,120);//fangs 
     x += speed * direction;
@@ -449,7 +439,7 @@ void scene11 () {
 }
     
 void scene12 () {
-   background (0,0,130);
+   background (93,28,53);
   trianglepumpkin ();
   mouth1.resize (0,130);//lots of teeth and fangs 
       x += speed * direction;
@@ -480,7 +470,7 @@ void scene12 () {
 }
 
 void scene13 () { 
-   background (0,0,130);
+   background (93,28,53);
   trianglepumpkin ();
   mouth3.resize (0,100);//smile 
     x += speed * direction;
@@ -567,7 +557,7 @@ void scene14 () {
 
 void scene15 (){
 
-  background (72, 69,47);
+  background (93,28,53);
   image (pumpkin, 140, 300);
   shape (eyes3, 163, 295,980,1000);
   mouth2.resize (0,120);//fangs 
@@ -599,7 +589,7 @@ void scene15 (){
 }
 
 void scene16 () {
-  background (72, 69,47);
+  background (93,28,53);
   image (pumpkin, 140, 300);
   shape (eyes3, 163, 295,980,1000);
   mouth1.resize (0,130);//lots of teeth and fangs 
@@ -680,8 +670,7 @@ void scene19 () {
   image (girl, 38, 330, 400, 400);
   } else {
   image (grim, 38, 310, 400, 400); //mouth3 smile 
-  //}
-  //println(images[4]);
+
   }
   }
 
@@ -690,18 +679,12 @@ void mousePressed(){
     if  (mouseX>450 && mouseX<752 && mouseY>527 && mouseY<570) {
      state = "intro";
      click.play();
-
      randomimage = int(random(0,5));
     }
   }
 }
 
-//void scene20 () {
-//  background (255);
-//  image (girl, 40, 350, 400, 400);
-//}
 
-//random image - text boxes
-//if a certain random image is choosen then a different baby appears 
-//grim image came from here http://www.clipartlord.com/category/halloween-clip-art/grim-reaper-clip-art/
-// girl and monster came from here http://cliparts.co/halloween-cartoon
+
+
+ 
