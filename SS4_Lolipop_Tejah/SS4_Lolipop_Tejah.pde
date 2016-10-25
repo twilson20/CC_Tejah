@@ -35,7 +35,7 @@ lolipop3.display ();
 lolipop3.move();
 lolipop4.display();
 lolipop4.move();
-//lolipops[0].display (); array 
+//lolipops[0].display (); array ?
 //lolipops[0].move ();
 //lolipops[1].display ();
 //lolipops[1].move ();
