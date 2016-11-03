@@ -2,8 +2,7 @@
 // When you click the red button, the background changes
 // Press red button to make the background change color 
 
-//I got the code from http://coursescript.com/notes/interactivecomputing/interactivity/
-// in order to change the background image color when button is clicked 
+//I used bits and pieces of code from http://coursescript.com/notes/interactivecomputing/interactivity/
 // polaroid image came from hrere http://www.polaroid.com/history
 
 var polaroid;
