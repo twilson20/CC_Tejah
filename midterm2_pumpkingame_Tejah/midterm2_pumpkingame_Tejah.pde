@@ -78,7 +78,6 @@ void setup () {
   bats = loadImage ("bats.png");
   pump =loadImage ("pumpkin.png");
   music = new SoundFile (this,"halloween.mp3");
-  music.play();
   music.loop();
   music.amp (1);
   click = new SoundFile (this, "click.mp3");
@@ -143,6 +142,30 @@ else if (state =="scene17") {
 }
 else if (state =="scene19") {
   scene19();
+}
+else if (state == "scene20") {
+  scene20();
+}
+else if (state == "scene21") {
+  scene21();
+}
+else if (state =="scene22") {
+  scene22();
+}
+else if (state =="scene23") {
+  scene23();
+}
+else if (state =="scene24"){
+  scene24();
+}
+else if (state =="scene25"){
+  scene25();
+}
+else if (state =="scene26"){
+  scene26();
+}
+else if (state == "scene27") {
+  scene27();
 }
 println (state);
 
@@ -235,7 +258,7 @@ void scene3() {
         state = "scene1";
         click.play();
       } else if  (mouseX>400 && mouseX<770 && mouseY>585 && mouseY<680) {
-        state = "scene14";
+        state = "scene20";
         click.play();
 }
       }
@@ -256,7 +279,7 @@ void scene4 () {
         state = "scene1";
         click.play();
       } else if  (mouseX>400 && mouseX<770 && mouseY>585 && mouseY<680) {
-        state = "scene14";
+        state = "scene24";
         click.play();
   }
  }
@@ -559,7 +582,7 @@ void scene15 (){
 
   background (93,28,53);
   image (pumpkin, 140, 300);
-  shape (eyes3, 163, 295,980,1000);
+  shape (eyes1, 325, 420);
   mouth2.resize (0,120);//fangs 
   x += speed * direction;
   if (x>317) {
@@ -591,7 +614,7 @@ void scene15 (){
 void scene16 () {
   background (93,28,53);
   image (pumpkin, 140, 300);
-  shape (eyes3, 163, 295,980,1000);
+  shape (eyes1, 325, 420);
   mouth1.resize (0,130);//lots of teeth and fangs 
       x += speed * direction;
   if (x>307) {
@@ -626,7 +649,7 @@ void scene17 () {
 
   background (93,28,53);
   image (pumpkin, 140, 300);
-  shape (eyes3, 163, 295,980,1000);
+  shape (eyes1, 325, 420);
   mouth3.resize (0,100);//smile 
   x += speed * direction;
   if (x>310) {
@@ -673,6 +696,249 @@ void scene19 () {
 
   }
   }
+  
+void scene20 () {
+  background (87,52,106);
+  textSize (70);
+  text ("Choose the mouth of your choice",90, 150);
+  mouth2.resize (0,120);//fangs 
+  image(mouth2, 100, 200);
+   mouth1.resize (0,130);//lots of teeth and fangs 
+  image (mouth1, 300, 350);
+  mouth3.resize (0,100);//smile 
+  image (mouth3, 540,500);
+     if (mousePressed) { //choose fangs
+        if (mouseX>100 && mouseX<260 && mouseY>200 && mouseY<300) {
+          state = "scene21";
+          click.play();
+    } else if (mouseX>300 && mouseX<500 && mouseY>400 && mouseY<440) { //choose fangs with a lot of teeth 
+        state = "scene22";
+        click.play();
+    }
+     else if  (mouseX>530 && mouseX<730 && mouseY>500 && mouseY<590) { // choose smile
+       state = "scene23";
+       click.play();
+     }
+    }
+}
+ 
+void scene21() {
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes2, 300, 395);
+  mouth2.resize (0,120);//fangs 
+  x += speed * direction;
+  if (x>317) {
+    direction = -direction;
+  }
+  if ( x<307) {
+   image (mouth2, x,500);
+   direction = 1;
+} else {
+  image (mouth2, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+}
+  }
+  
+void scene22 () {
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes2, 300, 395);
+  mouth1.resize (0,120);//fangs 
+      x += speed * direction;
+  if (x>307) {
+    direction = -direction;
+  }
+  if (x<283) {
+   image (mouth1, x,500);
+   direction = 1;
+} else {
+  image (mouth1, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+    }
+  }  
+
+void scene23 () {
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes2, 300, 395);
+  mouth3.resize (0,100);//smile 
+  x += speed * direction;
+  if (x>317) {
+    direction = -direction;
+  }
+  if ( x<307) {
+   image (mouth3, x,500);
+   direction = 1;
+} else {
+  image (mouth3, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+ }
+} 
+
+void scene24 () {
+    background (87,52,106);
+  textSize (70);
+  text ("Choose the mouth of your choice",90, 150);
+  mouth2.resize (0,120);//fangs 
+  image(mouth2, 100, 200);
+   mouth1.resize (0,130);//lots of teeth and fangs 
+  image (mouth1, 300, 350);
+  mouth3.resize (0,100);//smile 
+  image (mouth3, 540,500);
+     if (mousePressed) { //choose fangs
+        if (mouseX>100 && mouseX<260 && mouseY>200 && mouseY<300) {
+          state = "scene25";
+          click.play();
+    } else if (mouseX>300 && mouseX<500 && mouseY>400 && mouseY<440) { //choose fangs with a lot of teeth 
+        state = "scene26";
+        click.play();
+    }
+     else if  (mouseX>530 && mouseX<730 && mouseY>500 && mouseY<590) { // choose smile
+       state = "scene27";
+       click.play();
+     }
+    }
+}
+
+void scene25 () {
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes3, 163, 295,980,1000);
+  mouth2.resize (0,120);//fangs 
+  x += speed * direction;
+  if (x>317) {
+    direction = -direction;
+  }
+  if ( x<307) {
+   image (mouth2, x,500);
+   direction = 1;
+} else {
+  image (mouth2, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+  
+}
+}
+void scene26 () { 
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes3, 163, 295,980,1000);
+  mouth1.resize (0,120);//fangs 
+      x += speed * direction;
+  if (x>307) {
+    direction = -direction;
+  }
+  if (x<283) {
+   image (mouth1, x,500);
+   direction = 1;
+} else {
+  image (mouth1, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+}
+}
+
+void scene27 () {
+  background (93,28,53);
+  image (pumpkin, 140, 300);
+  shape (eyes3, 163, 295,980,1000);
+  mouth3.resize (0,100);//smile 
+  x += speed * direction;
+  if (x>317) {
+    direction = -direction;
+  }
+  if ( x<307) {
+   image (mouth3, x,500);
+   direction = 1;
+} else {
+  image (mouth3, x,500);
+}
+  fill(255);
+  textSize(60);
+  text ("Great! You decorated your pumpkin!",50,120);
+  textSize(60);
+  text ("Find out what the Pumpkin Expert",80, 190);
+  textSize (60);
+  text ("has to say about it",160, 260);
+  fill(255);
+  text ("NEXT", 650, 690);
+  textSize (70);
+    if (mousePressed) 
+    if  (mouseX>650 && mouseX<760 && mouseY>650 && mouseY<690) {
+    state = "scene19";
+    click.play();
+}
+}
+
 
 void mousePressed(){
   if (state == "scene19"){
