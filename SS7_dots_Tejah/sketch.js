@@ -1,5 +1,5 @@
 // Dots, Tejah 
-// The slider changes the c position of the circle
+// The slider changes the x position of the circle
 
 
 var y = 510; // circle starts off screen 
@@ -23,6 +23,6 @@ function draw() {
 }
   
 function circle () { // function for ellipse 
-    ellipse(xslider.value(), y, 30,30);
+    ellipse(xslider.value(), y, 50,50);
 }
 
