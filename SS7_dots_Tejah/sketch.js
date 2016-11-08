@@ -1,26 +1,28 @@
-var y = 510;
+// Dots, Tejah 
+// The slider changes the c position of the circle
+
+
+var y = 510; // circle starts off screen 
 var x = 0;
 var xslider;
-var ccolor;
 
 function setup() {
   createCanvas (500, 500);
   background(0);
-  xslider = createSlider(0, 500, 0);
-  xslider.position(20, 20);
+  xslider = createSlider(0, 500, 0); // x position from 0 to 500 
+  xslider.position(20, 20);// slider location 
 }
 
 function draw() {
     y = y -1;
-    if (y < -20) {
+    if (y < -20) { // when y reaches top of screen it starts over and goes back to the bottom 
     y = height;
-    x  = random(0,500);
   }
   circle ();
-  fill (random(0,255));
+  fill (random(0,255));// circle color changes 
 }
   
-function circle () {
+function circle () { // function for ellipse 
     ellipse(xslider.value(), y, 30,30);
 }
 
