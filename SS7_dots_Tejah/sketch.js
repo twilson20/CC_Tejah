@@ -7,9 +7,9 @@ var x = 0;
 var xslider;
 
 function setup() {
-  createCanvas (500, 500);
+  createCanvas (700, 700);
   background(0);
-  xslider = createSlider(0, 500, 0); // x position from 0 to 500 
+  xslider = createSlider(0, width, 0); // x position from 0 to 500 
   xslider.position(20, 20);// slider location 
 }
 
