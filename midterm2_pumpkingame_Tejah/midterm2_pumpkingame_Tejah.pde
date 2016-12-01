@@ -78,6 +78,8 @@ void setup () {
   bats = loadImage ("bats.png");
   pump =loadImage ("pumpkin.png");
   music = new SoundFile (this,"halloween.mp3");
+  music.play();
+  music.stop();
   music.loop();
   music.amp (1);
   click = new SoundFile (this, "click.mp3");

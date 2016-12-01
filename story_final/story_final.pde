@@ -20,6 +20,8 @@ PImage next;
 PImage pencil;
 PImage letter; 
 PImage envelope; 
+String object = "";
+String write = " "; 
 
 void setup (){
   book = loadImage("book.png");
@@ -107,6 +109,7 @@ void scene1 () {
    text ("There once was a girl who",120, 200);
    text ("recieved a gift.",120, 240);
    text ("the girl to recieve?", 540, 240);
+   text (object, 600, 300); 
     image (tiara, 720, 300);
     tiara. resize(150,150);
     image (bear, 620, 500);
@@ -123,7 +126,15 @@ void scene1 () {
    
    }
       
-   
+void keyPressed() {
+  if (state == "scene1" && state == "scnene2") {
+  object += key; 
+  }
+  if (state == "write" ){
+  write += key;
+  }
+    
+}
 //void mouseClicked (){
 // if (state == "scene1"){
 //   if (mouseX > 530 && mouseX<630 && mouseY<500 && mouseY>400) {
@@ -137,7 +148,8 @@ void scene1 () {
 
 void scene2 () { //ball  
   book();
-  text ("She opened the box", 120, 180);
+  text ("She opened the", 120, 180);
+  text (object, 400,180); 
   text ("and saw that it was a ball.", 120, 230);
   text ("Does she hate it or love it??",120, 280); 
   text ("Choose one", 210, 400);
@@ -184,6 +196,7 @@ void sadletter () {
   image (pencil, 680, 440);
   image (letter, 540, 280); 
   letter.resize (200,240);
+  
   //text ("Help her write her letter to Santa");
   //text ("Fill in the blanks and click");
   //text ("when the letter is complete");
@@ -202,6 +215,7 @@ void write () {
   text ("click the envelope when done to send the letter to Santa", 150, 180); 
   image (letter, 230, 200);  
   letter.resize (600, 750); 
+  text (write, 300, 200); 
   image (envelope, 800,800); 
   envelope. resize (200, 0);
 }
