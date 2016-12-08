@@ -19,6 +19,9 @@ PImage orn;
 PImage back1;
 PImage back2; 
 PImage back3; 
+PImage back4;
+PImage books;
+PImage snowflake;
 //Strings 
 String state = "intro";
 String object = "";
@@ -33,38 +36,37 @@ String name = "";
 String verb2 = ""; 
 String relative = "";
 String girlname = "";
-
+String verb3 = "";
 
 void setup (){
   book = loadImage("book.png");
   size (1000, 1000);
   mat = loadImage("mat.jpg");
-  background = loadImage ("background1.jpg"); 
+  books = loadImage ("books.png"); 
+  background = loadImage ("1.jpg"); 
   back = loadImage ("back.jpg"); 
   bg = loadImage ("bg.jpg");
   gift = loadImage ("gift.png");
-  bear = loadImage ("teddy bear.png");
-  ball = loadImage ("soccer ball.png");
+  bear = loadImage ("teddy.png");
+  ball = loadImage ("soccer.jpg");
   tiara = loadImage ("tiara.png");
-  girl = loadImage ("girll.png");
+  girl = loadImage ("christmasgirl.jpg");
   open = loadImage ("open.jpg");
-  next = loadImage ("next.png"); 
-  //crying = new Movie(this, "Bubbles Crying Compilation.mp4");
+  next = loadImage ("snow.png"); 
   pencil = loadImage ("pencil.png"); 
   pencil.resize(200,200); 
   letter = loadImage ("letter.png"); 
   envelope = loadImage ("envelope.png"); 
-  orn = loadImage ("orn.png"); 
-  back1 = loadImage ("christmas1.jpg");
-  back2 = loadImage ("christmas2.jpg");
-  back3 = loadImage ("christmas3.jpg");
+  orn = loadImage ("ornament.png"); 
+  back1 = loadImage ("retro 1.jpg");
+  back2 = loadImage ("retro2.jpg");
+  back3 = loadImage ("retro3.jpg");
+  back4 = loadImage ("retro4.png"); 
+  snowflake = loadImage ("snow.pmg");
 }
 
 
 void draw () {
-//  if (crying.available()) {
-
-//}
   if (state == "intro") {
     intro(); 
   }
@@ -104,6 +106,15 @@ void draw () {
   else if (state == "dinner") {
     dinner(); 
   }
+  else if (state == "verb3") {
+    verb3();
+  }
+  else if (state == "cry") {
+    cry();
+  }
+  else if (state == "name") {
+    name(); 
+  }
   println(state);
   
   println(mouseX, mouseY); 
@@ -122,37 +133,34 @@ void intro () {
   gift.resize(100,100);
   if (mousePressed){
     if (mouseX>462 && mouseX <556 && mouseY < 605 && mouseY >511) {
-      state = "scene1";
-      
+      state = "scene1";      
     }
   }
  }
-  
  
-
 void book() {
-  background(back);
+  background(background);
   image(book,50, 110);
   book.resize(900, 700);
 }
 
 void scene1 () {
-  book();
+   book();
    textSize(26);
    text ("There once was a girl who",120, 200);
    text ("recieved a gift.",120, 240);
    text ("Type in the gift you want",540, 200);
-   text ("the girl to recieve on ", 540, 240);
+   text ("the girl to recieve on", 540, 240);
    text ("the line.",540, 280);
    text (gift1, 545, 320);
    line (540, 325, 700, 325); 
-    image (tiara, 720, 300);
-    tiara. resize(150,150);
+    image (books, 720, 300);
+    books. resize(150,150);
     image (bear, 620, 500);
     bear.resize(200,200);
     image (ball, 530, 400);
     ball.resize(130,130);
-    image (girl, 170, 310);
+    image (girl, 162, 310);
     girl.resize(280,400);
     if (keyPressed) {
       if (key == ENTER){
@@ -184,18 +192,24 @@ void keyPressed() {
   if (state == "verb2") {
   verb2 += key ;
   }
+  if (state == "verb3") {
+   verb3 +=key;
+  }
+  if (state == "name"){
+    name +=key;
+  }
+
 }
     
 
 void scene2 () { //ball  
   book();
   text ("The girl opened the gift", 120, 180);
-  text ("and saw that it was a" + " " + gift1 , 120, 230);
+  text ("and saw that it was a"+ gift1 , 120, 230);
   text ("She was so excited when she", 120, 320);
-  text ("recieved her" + " " + gift1 , 120, 360);  
+  text ("recieved her" + gift1 , 120, 360);  
   text ("She couldn't contain", 540, 200); 
   text ("her happiness!", 540, 240);
-  text ("Click button to play video", 540, 650); 
   image(gift,170, 450); 
   gift.resize(270,270);
   image (next, 800, 680); 
@@ -210,14 +224,14 @@ void scene2 () { //ball
       
 void happyletter () {
   book(); 
-  text ("The girl loved the" + " " + gift1,120, 180);  
+  text ("The girl loved the" + gift1,120, 180);  
   text ("so much. She was",120, 220);
   text ("happy because Santa",120, 260); 
   text("gave her exactly what she",120, 300);
   text ("had asked for.", 120, 340);  
   text ("She decided to write Santa",120, 420);
   text ("a letter thanking him for", 120, 460);  
-  text ("the" + " " + gift1, 120, 500);
+  text ("the" + gift1, 120, 500);
   text ("Click on the pencil to",540, 180);
   text ("help her write her letter.",540, 220);
   image (pencil, 680, 500);
@@ -234,10 +248,10 @@ void blank (){
   background (back); 
   image (orn, 222,174); 
   orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with an adjective to ", 350,441);
-  text ("help complete her letter",299,497);
+  textSize (20); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an ADJECTIVE to ", 350,497);
+  text ("help complete her letter",299,530);
     line (384,630,647,630);
 }
 
@@ -245,104 +259,130 @@ void blank (){
 
 void adj2() {
   background (back1); 
-  image (orn, 222,174); 
-  orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with an adjective to ", 350,441);
-  text ("help complete her letter",299,497);
-  text (adj2,475,601); 
-  line (384,630,647,630);
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an ADJECTIVE to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (adj2,434,615); 
+  line (372,630,647,627);
   image (next, 800, 680); 
   next.resize(100,100); 
   if (mousePressed) {
   if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
   state = "adj3";      
+   }  
   }
-  
-  }
-  //text ("verb:" + verb2, 30, 250);
-  //text ("past tese adj:" + adj4, 30, 290);
-  //text ("Reindeer name" + name,30, 310 );
-  //text ("adjective:" + adj5,30, 350);
-  //text ("relative:" + relative,30, 410);
-  //text ("Girl's Name:" + girlname, 30, 440);
-
 }
   
 
 void adj3() {
-  book();  
-  background(back2);
-  image (orn, 222,174); 
-  orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with an adjective to ", 350,441);
-  text ("help complete her letter",299,497);
-  text (adj4,475,601); 
-  line (384,630,647,630);
-  image (next, 863, 580); 
+  background (back2); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an ADJECTIVE to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (adj3,434,615); 
+  line (372,630,647,627);
+  image (next, 809, 560); 
   next.resize(100,100); 
-  text (adj3,475,601); 
   if (mousePressed) {
-  if (mouseX>866 && mouseX<956 && mouseY<675 && mouseY>585){
+  if (mouseX>809 && mouseX<956 && mouseY<675 && mouseY>560){
   state = "adj4";    
-  
    }
   }
 }
 
 void adj4 () { 
-  background (back3); 
-  image (orn, 222,174); 
-  orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with an adjective to ", 350,441);
-  text ("help complete her letter",299,497);
-  text (adj4,475,601); 
-  line (384,630,647,630);
-
+  background (back1); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an ADJECTIVE to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (adj4,434,615); 
+  line (372,630,647,627);
   image (next, 800, 680); 
   next.resize(100,100); 
   if (mousePressed) {
   if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
-  state = "adj5"; 
+  state = "adj5";  
    }
   }  
 }
 
 void adj5 () {
-  background (back); 
-  image (orn, 222,174); 
-  orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with an adjective to ", 350,441);
-  text ("help complete her letter",299,497);
-  text (adj5,475,601); 
-  line (384,630,647,630);
-  image (next, 800, 480); 
+  background (back2); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an ADJECTIVE to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (adj5,434,615); 
+  line (372,630,647,627);
+  image (next, 800, 680); 
   next.resize(100,100); 
   if (mousePressed) {
-  if (mouseX>806 && mouseX<892 && mouseY<575 && mouseY>485){
-  state = "verb2";    
+  if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
+  state = "verb2";     
   }
-  }
-
+ }
 }
 
 void verb2 () {
-  background (back); 
-  image (orn, 222,174); 
-  orn.resize(600,670); 
-  textSize (40); 
-  text ("Fill in the blank", 372, 390 ); 
-  text ("with a verb to ", 426,441);
-  text ("help complete her letter",299,497);
-  text (verb2,475,601); 
-  line (384,630,647,630);
+  background (back1); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an VERB to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (verb2,434,615); 
+  line (372,630,647,627);
+  image (next, 800, 380); 
+  next.resize(100,100); 
+  if (mousePressed) {
+  if (mouseX>806 && mouseX<892 && mouseY<475 && mouseY>385){
+  state = "verb3"; 
+  }
+  }
+  
+}
+
+void verb3 () {
+  background (back2); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an VERB to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (verb3,434,615); 
+  line (372,630,647,627);
+  image (next, 800, 680); 
+  next.resize(100,100); 
+  if (mousePressed) {
+  if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
+  state = "name";   
+  }
+  }
+}
+
+void name () {
+    background (back1); 
+  image (orn, 50,-100); 
+  orn.resize(800,870); 
+  textSize (35); 
+  text ("Fill in the blank", 372, 441 ); 
+  text ("with an NAME to ", 325,497);
+  text ("help complete her letter",308,553);
+  text (name,434,615); 
+  line (372,630,647,627);
   image (next, 800, 380); 
   next.resize(100,100); 
   if (mousePressed) {
@@ -350,11 +390,9 @@ void verb2 () {
   state = "write"; 
   }
   }
-  
 }
-
 void write () {
-  background (back); 
+  background (back1); 
   textSize(50); 
   text ("She decided to write a thank you",149, 70);
   text ("letter to Santa.", 337, 130);
@@ -362,12 +400,16 @@ void write () {
   text ("Here's the letter that you helped her create.", 221, 180); 
   image (letter, 125, 250);  
   letter.resize (800, 750); 
-  text ("Dear Santa,", 242, 350); 
-  text ("Thank you so much", 242, 400); 
-  text ("for the" + " "+ adj2 + " " + object, 242, 443); 
-  text ("I am going to " + " " + verb2 + " " +  " with my" + " " + object, 242, 490); 
-  text ("all the time.", 242, 540);
-  text ("It was so" + " " + adj3, 242, 600);
+  text ("Dear Santa,", 242, 315); 
+  text ("Thank you so much for the" + " " + adj2, 242, 365); 
+  text (gift1 + " " + "I am going to" + " " + verb2 + " " + "with my", 242, 415); 
+  text (gift1 + " " + "all the time.", 242, 505); 
+  text ("I was so" + " " + adj3 + " " + "when I opened the box", 242, 600);
+  text ("and saw the" + gift1, 242, 650);
+  text ("I hope you" + " " + verb3 +  " " + "your Christmas.",242,700);
+  text ("See you soon",242,750);
+  text ("Love,",242,800);
+  text (name,280,850);
   image (envelope, 800,800); 
   envelope. resize (200, 0);
   textSize (40); 
@@ -379,10 +421,7 @@ void write () {
   }
 }
 
-void mailletter () {
-  book(); 
-  text ("vid of letter being sent to northpole", 150, 300); 
-}
+
 
 void getletter() {
   book();
@@ -393,11 +432,11 @@ void getletter() {
   text("finally recieved the girl's",120, 260);
   text("letter.",120, 300);
   text ("'Ho!Ho!Ho! What a sweet", 120, 360); 
-  text ("girl'. He said d",120, 420);
+  text ("girl'. He said",120, 420);
   text ("to himself.", 120, 460); 
   //right page
   text ("'Well... I am glad you", 540, 180); 
-  text ("enjoyed your " + gift1 + ".'", 540, 220); 
+  text ("enjoyed your " + gift1, 540, 220); 
   text ("Santa quickly got one", 540, 260);
   text ("of the elves to bring", 540, 300); 
   text ("him a pencil and paper.", 540, 340); 
@@ -423,11 +462,11 @@ void recieveletter () {
   text ("She couldn't believe who", 540, 180); 
   text ("it was from!", 540, 220);
   text ("'SANTA!' She exclaimed.", 540, 300); 
-  image (next, 800, 680);
+  image (next, 800, 680); 
   next.resize(100,100); 
   if (mousePressed) {
   if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
-  state = "dinner";
+  state = "dinner";  
 }
   }
 }
@@ -442,14 +481,27 @@ void dinner () {
   text ("He wrote me a letter!'",120, 420);
     //right page 
   text ("But no one believed her", 540, 180);
-  text ("They didn't believe that Santa",540, 220); 
-  text ("was real.", 540, 300); 
+  text ("They didn't believe that",540, 220); 
+  text ("Santa was real.", 540, 260); 
   image (next, 800, 680);
   next.resize(100,100); 
   if (mousePressed) {
   if (mouseX>806 && mouseX<892 && mouseY<775 && mouseY>685){
-  state = "recieveletter";
+  state = "cry";
 
    }
   }
 }
+
+void cry (){
+  book();
+  text ("That night the girl went",120, 180);
+  text ("to bed and cried.", 120, 220);
+  text ("She wrote another letter", 120, 260);
+  text ("to Santa telling him", 120, 300);
+  text ("that no one believes",120, 340); 
+  text ("he's real anymore.", 120, 380);
+  // image on rigth side of bed or something, idk 
+}
+
+  
